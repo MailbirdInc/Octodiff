@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5426F37-9B8D-4DC8-B2BD-9F5816E548C5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Octodiff</RootNamespace>
+    <AssemblyName>Octodiff</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommandLine\DeltaCommand.cs" />
+    <Compile Include="CommandLine\ExplainDeltaCommand.cs" />
+    <Compile Include="CommandLine\HelpCommand.cs" />
+    <Compile Include="CommandLine\PatchCommand.cs" />
+    <Compile Include="CommandLine\SignatureCommand.cs" />
+    <Compile Include="CommandLine\Support\CommandAttribute.cs" />
+    <Compile Include="CommandLine\Support\CommandException.cs" />
+    <Compile Include="CommandLine\Support\CommandLocator.cs" />
+    <Compile Include="CommandLine\Support\ICommand.cs" />
+    <Compile Include="CommandLine\Support\ICommandLocator.cs" />
+    <Compile Include="CommandLine\Support\ICommandMetadata.cs" />
+    <Compile Include="CommandLine\Support\NDesk.Options.cs" />
+    <Compile Include="Core\Adler32RollingChecksum.cs" />
+    <Compile Include="Core\AggregateCopyOperationsDecorator.cs" />
+    <Compile Include="Core\BinaryDeltaReader.cs" />
+    <Compile Include="Core\BinaryDeltaWriter.cs" />
+    <Compile Include="Core\BinaryFormat.cs" />
+    <Compile Include="Core\ChunkSignature.cs" />
+    <Compile Include="Core\ChunkSignatureChecksumComparer.cs" />
+    <Compile Include="Core\CompatibilityException.cs" />
+    <Compile Include="Core\CorruptFileFormatException.cs" />
+    <Compile Include="Core\DataRange.cs" />
+    <Compile Include="Core\DeltaApplier.cs" />
+    <Compile Include="Core\DeltaBuilder.cs" />
+    <Compile Include="Core\DeltaStatistics.cs" />
+    <Compile Include="Core\HashAlgorithmWrapper.cs" />
+    <Compile Include="Core\IDeltaReader.cs" />
+    <Compile Include="Core\IDeltaWriter.cs" />
+    <Compile Include="Core\IHashAlgorithm.cs" />
+    <Compile Include="Core\IRollingChecksum.cs" />
+    <Compile Include="Core\ISignatureReader.cs" />
+    <Compile Include="Core\ISignatureWriter.cs" />
+    <Compile Include="Core\Signature.cs" />
+    <Compile Include="Core\SignatureBuilder.cs" />
+    <Compile Include="Core\SignatureReader.cs" />
+    <Compile Include="Core\SupportedAlgorithms.cs" />
+    <Compile Include="Core\UsageException.cs" />
+    <Compile Include="Diagnostics\ConsoleProgressReporter.cs" />
+    <Compile Include="Diagnostics\IProgressReporter.cs" />
+    <Compile Include="Diagnostics\NullProgressReporter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

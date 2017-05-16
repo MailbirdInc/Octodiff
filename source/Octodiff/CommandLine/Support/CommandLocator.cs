@@ -10,7 +10,7 @@ namespace Octodiff.CommandLine.Support
         public ICommandMetadata[] List()
         {
             return
-            (from t in assemblyCommands
+            (from t in GetAssemblyCommands()
              let attribute = GetCommandAttribute(t)
              where attribute != null
              select attribute).ToArray();
@@ -19,7 +19,7 @@ namespace Octodiff.CommandLine.Support
         public ICommandMetadata Find(string name)
         {
             name = name.Trim().ToLowerInvariant();
-            return (from t in assemblyCommands
+            return (from t in GetAssemblyCommands()
                 let attribute = GetCommandAttribute(t)
                 where attribute != null
                 where attribute.Name == name || attribute.Aliases.Any(a => a == name)
@@ -29,7 +29,7 @@ namespace Octodiff.CommandLine.Support
         public ICommand Create(ICommandMetadata metadata)
         {
             var name = metadata.Name;
-            var found = (from t in assemblyCommands
+            var found = (from t in GetAssemblyCommands()
                 let attribute = GetCommandAttribute(t)
                 where attribute != null
                 where attribute.Name == name || attribute.Aliases.Any(a => a == name)
@@ -38,13 +38,14 @@ namespace Octodiff.CommandLine.Support
             return found == null ? null : (ICommand) Activator.CreateInstance(found);
         }
 
-        IEnumerable<Type> assemblyCommands =>
+        IEnumerable<Type> GetAssemblyCommands()
+        {
 #if NET40
-            typeof(CommandLocator).Assembly.GetTypes().Where(t => typeof(ICommand).IsAssignableFrom(t));
+            return typeof(CommandLocator).Assembly.GetTypes().Where(t => typeof(ICommand).IsAssignableFrom(t));
 #else
-            typeof(CommandLocator).GetTypeInfo().Assembly.GetTypes().Where(t => typeof(ICommand).GetTypeInfo().IsAssignableFrom(t));
+            return typeof(CommandLocator).GetTypeInfo().Assembly.GetTypes().Where(t => typeof(ICommand).GetTypeInfo().IsAssignableFrom(t));
 #endif
-
+        }
         ICommandMetadata GetCommandAttribute(Type type)
         {
 #if NET40
