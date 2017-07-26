@@ -49,6 +49,14 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
@@ -57,7 +65,6 @@
     <Compile Include="CommandLine\ExplainDeltaCommand.cs" />
     <Compile Include="CommandLine\HelpCommand.cs" />
     <Compile Include="CommandLine\PatchCommand.cs" />
-    <Compile Include="CommandLine\SignatureDirCommand.cs" />
     <Compile Include="CommandLine\SignatureCommand.cs" />
     <Compile Include="CommandLine\Support\CommandAttribute.cs" />
     <Compile Include="CommandLine\Support\CommandException.cs" />
