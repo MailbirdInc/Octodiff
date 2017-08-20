@@ -73,34 +73,6 @@
     <Compile Include="CommandLine\Support\ICommandLocator.cs" />
     <Compile Include="CommandLine\Support\ICommandMetadata.cs" />
     <Compile Include="CommandLine\Support\NDesk.Options.cs" />
-    <Compile Include="Core\Adler32RollingChecksum.cs" />
-    <Compile Include="Core\AggregateCopyOperationsDecorator.cs" />
-    <Compile Include="Core\BinaryDeltaReader.cs" />
-    <Compile Include="Core\BinaryDeltaWriter.cs" />
-    <Compile Include="Core\BinaryFormat.cs" />
-    <Compile Include="Core\ChunkSignature.cs" />
-    <Compile Include="Core\ChunkSignatureChecksumComparer.cs" />
-    <Compile Include="Core\CompatibilityException.cs" />
-    <Compile Include="Core\CorruptFileFormatException.cs" />
-    <Compile Include="Core\DataRange.cs" />
-    <Compile Include="Core\DeltaApplier.cs" />
-    <Compile Include="Core\DeltaBuilder.cs" />
-    <Compile Include="Core\DeltaStatistics.cs" />
-    <Compile Include="Core\HashAlgorithmWrapper.cs" />
-    <Compile Include="Core\IDeltaReader.cs" />
-    <Compile Include="Core\IDeltaWriter.cs" />
-    <Compile Include="Core\IHashAlgorithm.cs" />
-    <Compile Include="Core\IRollingChecksum.cs" />
-    <Compile Include="Core\ISignatureReader.cs" />
-    <Compile Include="Core\ISignatureWriter.cs" />
-    <Compile Include="Core\Signature.cs" />
-    <Compile Include="Core\SignatureBuilder.cs" />
-    <Compile Include="Core\SignatureReader.cs" />
-    <Compile Include="Core\SupportedAlgorithms.cs" />
-    <Compile Include="Core\UsageException.cs" />
-    <Compile Include="Diagnostics\ConsoleProgressReporter.cs" />
-    <Compile Include="Diagnostics\IProgressReporter.cs" />
-    <Compile Include="Diagnostics\NullProgressReporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +95,7 @@
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
+  <Import Project="..\Octodiff.Core\Octodiff.Core.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

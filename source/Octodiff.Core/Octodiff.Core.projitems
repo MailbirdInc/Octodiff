@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>2eaba037-f62c-4bde-9ffb-1749fe899db5</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Octodiff.Core</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Adler32RollingChecksum.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\AggregateCopyOperationsDecorator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\BinaryDeltaReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\BinaryDeltaWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\BinaryFormat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\ChunkSignature.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\ChunkSignatureChecksumComparer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\CompatibilityException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\CorruptFileFormatException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\DataRange.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\DeltaApplier.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\DeltaBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\DeltaStatistics.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Diagnostics\ConsoleProgressReporter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Diagnostics\IProgressReporter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Diagnostics\NullProgressReporter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\HashAlgorithmWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\IDeltaReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\IDeltaWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\IHashAlgorithm.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\IRollingChecksum.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\ISignatureReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\ISignatureWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Signature.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\SignatureBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\SignatureReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\SupportedAlgorithms.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\UsageException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Core\" />
+  </ItemGroup>
+</Project>
